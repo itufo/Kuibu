@@ -40,7 +40,6 @@
         android:layout_weight="0.66"
         android:gravity="left|top"
         android:minLines="2"
-        android:maxLines="7"
         android:inputType="textMultiLine" />
 
     <Button
