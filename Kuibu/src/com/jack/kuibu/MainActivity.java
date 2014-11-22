@@ -18,6 +18,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -29,9 +31,9 @@ public class MainActivity extends ActionBarActivity {
 	private TaskDBManager mDBMgr; 
 	private Button mAddBtn;
 	
-	SimpleAdapter mlistAdapter;  // ListView鐨勯�傞厤鍣�
-	ArrayList<HashMap<String, Object>> mlistItem;  // ListView鐨勬暟鎹簮锛岃繖閲屾槸涓�涓狧ashMap鐨勫垪琛�
-	ListView mList;  // ListView鎺т欢
+	SimpleAdapter mlistAdapter;  // ListView閻ㄥ嫰锟藉倿鍘ら崳锟�
+	ArrayList<HashMap<String, Object>> mlistItem;  // ListView閻ㄥ嫭鏆熼幑顔界爱閿涘矁绻栭柌灞炬Ц娑擄拷娑撶嫥ashMap閻ㄥ嫬鍨悰锟�
+	ListView mList;  // ListView閹貉傛
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,7 @@ public class MainActivity extends ActionBarActivity {
 		
 		mList = (ListView)findViewById(R.id.taskList);	
 		mList.setAdapter(mlistAdapter);
+		setListItemListener();
 		
 		mAddBtn = (Button)findViewById(R.id.add);
 		mAddBtn.setOnClickListener(new View.OnClickListener() {
@@ -62,7 +65,20 @@ public class MainActivity extends ActionBarActivity {
 		mDBMgr = new TaskDBManager(this);
 		loadTasks();
 	}
-	
+	protected void setListItemListener()
+	{
+		mList.setOnItemClickListener(new OnItemClickListener(){			
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				Intent i = new Intent(MainActivity.this, TaskActivity.class);
+				i.putExtra(TaskActivity.EXTRA_ITEM_POSITION, position);
+				startActivityForResult(i,0);
+
+			}
+		});
+	}
 	protected void loadTasks()
 	{
 		

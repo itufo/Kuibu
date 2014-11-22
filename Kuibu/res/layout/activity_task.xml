@@ -28,19 +28,19 @@
         android:layout_height="wrap_content" >
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/taskStartBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="开始" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/taskPauseBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="暂停" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/taskCompleteBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="完成" />
