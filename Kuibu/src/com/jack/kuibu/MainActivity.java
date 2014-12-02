@@ -74,6 +74,8 @@ public class MainActivity extends ActionBarActivity {
 				// TODO Auto-generated method stub
 				Intent i = new Intent(MainActivity.this, TaskActivity.class);
 				i.putExtra(TaskActivity.EXTRA_ITEM_POSITION, position);
+				HashMap<String, Object> map = (HashMap<String, Object>) mList.getItemAtPosition(position);
+				i.putExtra(TaskActivity.EXTRA_TASK_ID, (String)map.get("id"));
 				startActivityForResult(i,0);
 
 			}
@@ -95,6 +97,7 @@ public class MainActivity extends ActionBarActivity {
 		String content = task.mContent;
 		
 		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("id", String.valueOf(task.mId));
 		map.put("image", R.drawable.ic_launcher);
 		map.put("title", title);
 		map.put("text", content);
