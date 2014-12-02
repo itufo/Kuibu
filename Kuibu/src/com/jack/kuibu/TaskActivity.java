@@ -12,6 +12,8 @@ public class TaskActivity extends Activity {
 
 	public static final String EXTRA_ITEM_POSITION =
 			"com.jack.kuibu.item_position";
+	public static final String EXTRA_TASK_ID =
+			"com.jack.kuibu.task_id";
 	
 	public static final String EXTRA_SAVE_CONTENT =
 			"com.jack.kuibu.task_content";
@@ -33,7 +35,7 @@ public class TaskActivity extends Activity {
 		mStartBtn = (Button)findViewById(R.id.taskStartBtn);
 		mPauseBtn = (Button)findViewById(R.id.taskPauseBtn);
 		mCompleteBtn = (Button)findViewById(R.id.taskCompleteBtn);
-		int p = getIntent().getIntExtra(EXTRA_ITEM_POSITION, -1);
+		int p = getIntent().getIntExtra(EXTRA_TASK_ID, -1);
 		mTitle.setText(String.valueOf(p));
 /*		
 		mSaveBtn.setOnClickListener(new View.OnClickListener() {
